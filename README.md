@@ -22,7 +22,7 @@ _You could use a util function like the one you created yesterday..._
 
 Keep in mind, that under normal circumstances, the FE should not be affected by any changes you make here. Meaning it shouldn't break because you change the code in the backend. Be mindful of what the FE expects as data as well as how you are storing it in the database.
 
-Don't forget to provide an `_id` to each document. You could do that before getting rid of the code that currently generates the seats. Each seat shouls look something like this.
+Don't forget to provide an `_id` to each document. You could do that before getting rid of the code that currently generates the seats. Each seat should look something like this.
 
 ```js
 {

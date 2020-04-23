@@ -39,7 +39,7 @@ const initialState = {
 function reducer(state, action) {
   if (action.type === 'ADD_KETCHUP') {
     state.burgerToppings.push('ketchup');
-    return state;
+    return {...state, burgerToppings: [...state.burgerToppings, 'ketchup'];
   }
 }
 ```
@@ -125,6 +125,14 @@ function reducer(state, action) {
     return state;
   }
 }
+
+function reducer(state, action) {
+  if (action.type === 'MAKE_FRIEND') {
+    return produce(state, draftState) => {
+      draftState.bestFriend = action.gerald.firstName
+    }
+  }
+}
 ```
 
 ---
@@ -144,6 +152,15 @@ function reducer(state, action) {
   if (action.type === 'ADD_KETCHUP') {
     state.burgerToppings.push('ketchup');
     return state;
+  }
+}
+
+function reducer(state, action) {
+  if (action.type === 'ADD_KETCHUP') {
+
+    return produce(state, draftState) => {
+      draftState.burgerToppings.push('ketchup')
+    };
   }
 }
 ```
@@ -176,7 +193,9 @@ function reducer(state, action) {
 
     delete state.competitors[teamId].racers[racerName];
 
-    return state;
+    return produce(state, draftState) => {
+      delete draftState.competitors[teamId].racers[racerName];
+    };
   }
 }
 ```
